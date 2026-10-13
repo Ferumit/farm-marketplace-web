@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('et-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
+<title>Регистрация — ET</title>
+<meta name="description" content="Регистрация в ET: покупателям — доступ к лотам и совместным покупкам, фермерам — размещение мяса на продажу.">
+<link rel="icon" href="/assets/icon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/components.css">
+<style>
+  .auth-wrap { max-width: 520px; margin: 0 auto; }
+  .steps-rail { display: flex; gap: 8px; margin: 18px 0 8px; }
+  .steps-rail span {
+    flex: 1; height: 4px; border-radius: var(--r-pill); background: var(--fill-track);
+  }
+  .steps-rail span.done { background: var(--green); }
+</style>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <div class="container section-tight auth-wrap">
+    <span class="eyebrow">Регистрация</span>
+    <h1 style="margin-top:6px;" id="step-title">Кто вы на площадке?</h1>
+    <p id="step-sub">Выберите роль — от неё зависит, что вы сможете делать в ET.</p>
+
+    <div class="steps-rail" aria-hidden="true">
+      <span id="rail-1" class="done"></span><span id="rail-2"></span><span id="rail-3"></span>
+    </div>
+
+    <!-- Шаг 1: роль -->
+    <div id="step-role">
+      <div class="grid grid-2" style="margin-top:14px;">
+        <button class="role-card" type="button" data-role="client">
+          <span class="icon-tile"><svg class="icon " width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="8" cy="21" r="1" /><circle cx="19" cy="21" r="1" /><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" /></svg></span>
+          <strong>Покупатель</strong>
+          <span class="role-desc">Покупать мясо целиком или вместе с друзьями и следить за доставкой.</span>
+        </button>
+        <button class="role-card" type="button" data-role="partner">
+          <span class="icon-tile"><svg class="icon " width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 22 16 8" /><path d="M3.47 12.53 5 11l1.53 1.53a3.5 3.5 0 0 1 0 4.94L5 19l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z" /><path d="M7.47 8.53 9 7l1.53 1.53a3.5 3.5 0 0 1 0 4.94L9 15l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z" /><path d="M11.47 4.53 13 3l1.53 1.53a3.5 3.5 0 0 1 0 4.94L13 11l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z" /><path d="M20 2h2v2a4 4 0 0 1-4 4h-2V6a4 4 0 0 1 4-4Z" /><path d="M11.47 17.47 13 19l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L5 19l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z" /><path d="M15.47 13.47 17 15l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L9 15l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z" /><path d="M19.47 9.47 21 11l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L13 11l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z" /></svg></span>
+          <strong>Фермер</strong>
+          <span class="role-desc">Выставлять мясо на продажу, вести скот и этапы доставки. Нужен ИИН или БИН.</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Шаг 2: телефон и код -->
+    <div id="step-phone" hidden>
+      <div class="panel">
+        <div class="notice-box notice-icon"><svg class="icon " width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></svg><span>Номер подтверждается кодом из SMS. Это тот же аккаунт, что и в приложении ET.</span></div>
+        <div class="field">
+          <label>Номер телефона</label>
+          <input type="tel" id="phone-input" placeholder="+7 700 000 00 00" autocomplete="tel">
+        </div>
+        <button class="btn-pill btn-primary btn-block" id="btn-send-code">Получить код →</button>
+      </div>
+    </div>
+
+    <div id="step-code" hidden>
+      <div class="panel">
+        <div class="field">
+          <label>Код из SMS</label>
+          <input type="text" id="code-input" placeholder="123456" inputmode="numeric" autocomplete="one-time-code" maxlength="6">
+        </div>
+        <button class="btn-pill btn-primary btn-block" id="btn-confirm-code">Подтвердить →</button>
+        <button class="btn-pill btn-ghost btn-block" id="btn-change-phone" style="margin-top:10px;">Изменить номер</button>
+      </div>
+    </div>
+
+    <!-- Шаг 3: анкета -->
+    <div id="step-form" hidden>
+      <div class="panel">
+        <div class="field">
+          <label id="name-label">Имя</label>
+          <input type="text" id="f-name" placeholder="Как к вам обращаться">
+        </div>
+        <div class="field" id="iin-field" hidden>
+          <label for="f-iin">ИИН / БИН</label>
+          <input type="text" id="f-iin" placeholder="12 цифр" inputmode="numeric" maxlength="12" autocomplete="off">
+          <p class="field-hint">Видят только вы и администрация платформы — для проверки хозяйства.</p>
+        </div>
+        <div class="field" id="region-field" hidden>
+          <label for="f-region">Область</label>
+          <select id="f-region"><option value="">Выберите область</option></select>
+        </div>
+        <div class="field">
+          <label for="f-city" id="city-label">Город</label>
+          <input type="text" id="f-city" placeholder="Например, Астана">
+        </div>
+        <div class="field">
+          <label for="f-email">Email <span style="color:var(--ink-faint); font-weight:400;">— необязательно</span></label>
+          <input type="email" id="f-email" placeholder="name@example.kz" autocomplete="email" inputmode="email">
+          <p class="field-hint">Для чеков и уведомлений о заказах. Видите только вы и администрация платформы.</p>
+        </div>
+        <div class="notice-box" id="partner-note" hidden>
+          После регистрации хозяйство проходит проверку. Скот, документы и лоты можно готовить
+          сразу — покупатели увидят хозяйство и его лоты после подтверждения. Точку хаба на карте
+          можно поставить в профиле.
+        </div>
+        <button class="btn-pill btn-primary btn-block" id="btn-finish">Завершить регистрацию</button>
+      </div>
+    </div>
+
+    <p id="auth-error" style="color:var(--danger); display:none; margin-top:14px;"></p>
+    <p style="margin-top:18px; font-size:14px;">Уже есть аккаунт? <a href="/login" id="login-link" style="color:var(--green); font-weight:600;">Войти</a></p>
+  </div>
+
+  <div id="recaptcha-container"></div>
+  <div id="site-footer"></div>
+
+  <script type="module" src="/js/register.js"></script>
+</body>
+</html>

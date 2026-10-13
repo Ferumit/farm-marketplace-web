@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('et-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
+<title>Новый лот — ET Partners</title>
+<link rel="icon" href="/assets/icon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/components.css">
+<style>
+  .editor-layout { display: grid; gap: 24px; grid-template-columns: 1fr; }
+  @media (min-width: 960px) { .editor-layout { grid-template-columns: 1.4fr 1fr; align-items: start; } }
+  .form-grid { display: grid; gap: 0 16px; grid-template-columns: 1fr; }
+  @media (min-width: 620px) { .form-grid { grid-template-columns: 1fr 1fr; } }
+  .share-options { display: flex; gap: 8px; flex-wrap: wrap; }
+  .share-opt {
+    padding: 12px 18px; border-radius: var(--r-pill); cursor: pointer; font-weight: 700; font-size: 14px;
+    background: var(--surface-2); border: 1px solid var(--line); color: var(--ink);
+  }
+  .share-opt.selected { background: var(--green-surface); border-color: var(--green-surface); color: #fff; }
+  .animal-pick {
+    display: flex; align-items: center; gap: 12px; padding: 12px;
+    border: 1px solid var(--line); border-radius: var(--r-sm); margin-bottom: 8px; cursor: pointer;
+    background: var(--surface-2);
+  }
+  .animal-pick.selected { border-color: var(--green); box-shadow: 0 0 0 1px var(--green) inset; }
+  .animal-pick .mini { width: 40px; height: 40px; border-radius: 8px; object-fit: cover; background: var(--fill-track);
+    display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .calc-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; font-size: 14px; }
+  .calc-row strong { font-family: var(--font-display); font-size: 22px; color: var(--green); }
+</style>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <div class="container section-tight">
+    <span class="eyebrow">Кабинет фермера</span>
+    <h1 style="margin:6px 0 0;">Конструктор лота</h1>
+    <div id="cabinet-nav"></div>
+
+    <div class="editor-layout">
+      <div class="panel">
+        <div class="field">
+          <label>Животное</label>
+          <p class="progress-caption" style="margin:0 0 10px;">Лот — это одна туша. Выберите животное из реестра: из него
+            подставятся вид мяса, порода и документы.</p>
+          <div id="animals-picker"><p style="font-size:13px;">Загрузка…</p></div>
+        </div>
+
+        <div class="form-grid">
+          <div class="field" style="grid-column:1/-1;">
+            <label for="f-name">Название</label>
+            <input type="text" id="f-name" maxlength="80" placeholder="Казахская белоголовая, торпақ">
+          </div>
+          <div class="field">
+            <label for="f-weight">Вес туши, кг — примерно</label>
+            <input type="text" id="f-weight" placeholder="240" inputmode="decimal">
+            <p class="field-hint" id="weight-hint">Точный вес определит контрольное взвешивание после забоя.</p>
+          </div>
+          <div class="field">
+            <label for="f-price">Цена за 1 кг туши, ₸</label>
+            <input type="text" id="f-price" placeholder="3500" inputmode="decimal">
+          </div>
+          <div class="field" style="grid-column:1/-1;">
+            <label class="check-row" style="margin:0;"><input type="checkbox" id="f-halves" checked>
+              Можно купить половину — иначе туша продаётся только целиком</label>
+          </div>
+          <div class="field">
+            <label for="f-region">Регион</label>
+            <select id="f-region"><option value="">Выберите область</option></select>
+          </div>
+          <div class="field">
+            <label for="f-photo">Обложка (необязательно)</label>
+            <input type="file" id="f-photo" accept="image/*">
+          </div>
+          <div class="field" style="grid-column:1/-1;">
+            <label for="f-desc">Описание (необязательно)</label>
+            <textarea id="f-desc" maxlength="1500" placeholder="Пастбищный откорм, возраст, условия содержания"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h4 class="eyebrow" style="margin-bottom:14px;">Цена для покупателя</h4>
+        <div class="calc-row" id="calc-half-row"><span id="calc-half-label">Половина</span><strong id="calc-half">—</strong></div>
+        <div class="calc-row"><span id="calc-whole-label">Целая туша</span><strong id="calc-whole">—</strong></div>
+        <p class="progress-caption" style="margin:0;">Разделка и доставка добавятся по тарифам
+          <a href="/cabinet/storefront" style="color:var(--green)">вашей витрины</a>.</p>
+        <div class="notice-box" style="margin-top:16px;">
+          Лот создаётся черновиком — в каталоге он появится только после публикации на странице «Лоты».
+        </div>
+        <p id="form-error" style="color:var(--danger); display:none;"></p>
+        <button class="btn-pill btn-primary btn-block" id="btn-create">Создать лот</button>
+        <a class="btn-pill btn-ghost btn-block" href="/cabinet/lots" style="margin-top:10px;">Отмена</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="site-footer"></div>
+  <script type="module" src="/js/partner-lot-editor.js"></script>
+</body>
+</html>

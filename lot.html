@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('et-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
+<title>Лот — ET</title>
+<meta name="description" content="Купите лот мяса целиком или вместе с друзьями — напрямую от фермера, с прозрачным трекингом заказа.">
+<link rel="icon" href="/assets/icon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/components.css">
+<style>
+  /* minmax(0, ...) rather than 1fr: a bare 1fr column grows to its widest unbreakable content,
+     which is how one button label once pushed this page past the screen edge. */
+  .lot-layout { display:grid; gap:28px; grid-template-columns: minmax(0, 1fr); }
+  @media (min-width: 960px) { .lot-layout { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); align-items:start; } }
+  .lot-photo { border-radius: var(--r-card); overflow:hidden; aspect-ratio: 16/10; background: linear-gradient(135deg, var(--green-tint), var(--rust-tint)); display:flex; align-items:center; justify-content:center; font-size:64px; }
+  .lot-photo img { width:100%; height:100%; object-fit:cover; }
+  .share-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(46px,1fr)); gap:8px; margin:16px 0; }
+  .share-slot { aspect-ratio:1; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; }
+  .share-slot.filled { background: var(--green-surface); color:#fff; }
+  /* Full ink: on the track fill --ink-faint measured 4.0:1 (dark) and --ink-dim 4.2:1 (light).
+     These numbers are the shares still free - they should read clearly anyway. */
+  .share-slot.empty { background: var(--fill-track); color: var(--ink); }
+  /* Two halves read better as two wide labelled blocks than as two numbered squares. */
+  .share-grid--halves { grid-template-columns: 1fr 1fr; }
+  .share-slot--half { aspect-ratio: auto; padding: 16px 10px; font-size: 14px; gap: 6px; }
+</style>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <div class="container section-tight" id="lot-content">
+    <div class="empty-state skeleton" style="height:400px;"></div>
+  </div>
+
+  <div id="site-footer"></div>
+
+  <script type="module" src="/js/lot.js"></script>
+</body>
+</html>

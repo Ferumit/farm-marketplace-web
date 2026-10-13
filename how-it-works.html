@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('et-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
+<title>Как это работает и сколько стоит — ET</title>
+<meta name="description" content="Что продаётся на ET, как считается цена за килограмм туши, сколько стоят разделка и доставка, какая комиссия у платформы, как проходит оплата картой и как возвращаются деньги.">
+<link rel="canonical" href="https://example.kz/how-it-works">
+<link rel="icon" href="/assets/icon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/components.css">
+<style>
+  /* Одна длинная страница, которую читают сверху вниз: и покупатель, и проверяющий из банка.
+     Поэтому колонка узкая, а таблицы цен — обычные таблицы, без карточек и колонок. */
+  .doc { max-width: 760px; }
+  .doc h2 { margin: 34px 0 10px; }
+  .doc h3 { margin: 22px 0 6px; font-size: 17px; }
+  .doc p { margin: 0 0 12px; }
+  .doc ul { margin: 0 0 14px; padding-left: 20px; }
+  .doc li { margin-bottom: 6px; }
+  .price-table { width: 100%; border-collapse: collapse; margin: 14px 0 18px; font-size: 15px; }
+  .price-table th, .price-table td { text-align: left; padding: 11px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .price-table th { font-weight: 600; color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: .04em; }
+  .price-table td:last-child { white-space: nowrap; font-weight: 600; }
+  .callout { background: var(--green-tint); border-radius: 14px; padding: 16px 18px; margin: 18px 0; }
+  .callout p:last-child { margin-bottom: 0; }
+  .steps { counter-reset: step; list-style: none; padding: 0; }
+  .steps li { counter-increment: step; position: relative; padding-left: 38px; margin-bottom: 14px; }
+  .steps li::before {
+    content: counter(step); position: absolute; left: 0; top: 0;
+    width: 26px; height: 26px; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--green-tint); color: var(--green); font-weight: 700; font-size: 13px;
+  }
+</style>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <div class="container section-tight doc">
+    <span class="eyebrow">ET · Платформа</span>
+    <h1 style="margin-top:6px;">Как это работает и сколько стоит</h1>
+    <p>Здесь собрано всё, что влияет на сумму в заказе: из чего складывается цена, почему итог
+      уточняется после взвешивания, как проходит оплата и когда возвращаются деньги.</p>
+
+    <h2>Что продаётся</h2>
+    <p>Туша — говяжья или конская — от проверенного фермерского хозяйства. Купить её можно
+      целиком или половиной. Доли мельче половины платформа не продаёт.</p>
+    <p>Каждое хозяйство проходит проверку: документы юридического лица, санитарно-эпидемиологическое
+      заключение и ветеринарный контроль. Хозяйство без проверки в каталог не попадает.</p>
+
+    <h2>Из чего складывается цена</h2>
+    <table class="price-table">
+      <thead>
+        <tr><th>Что</th><th>Как считается</th><th>Пример</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Мясо</td>
+          <td>Цену за килограмм туши назначает хозяйство. Половина туши — половина веса.</td>
+          <td>100 кг × 3 500 ₸<br>350 000 ₸</td>
+        </tr>
+        <tr>
+          <td>Разделка</td>
+          <td>Стандартная разделка входит в цену мяса. Платные варианты хозяйство задаёт само,
+            цена указывается за половину туши.</td>
+          <td>+30 000 ₸</td>
+        </tr>
+        <tr>
+          <td>Доставка</td>
+          <td>Города и цену назначает хозяйство. Самовывоз из хаба — бесплатно.</td>
+          <td>+30 000 ₸</td>
+        </tr>
+        <tr>
+          <td>Комиссия платформы</td>
+          <td>Удерживается из доли хозяйства. Покупатель платит ровно ту сумму, которую видит
+            в заказе, и ничего сверх неё.</td>
+          <td>10 %</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Комиссия в 10 % делится так: 5 % — работа платформы, 3 % — приём платежа, 2 % — разбор
+      спорных ситуаций.</p>
+
+    <h2>Почему итог уточняется после взвешивания</h2>
+    <p>Вес туши в каталоге — предварительный: точный вес известен только после забоя. Поэтому
+      хозяйство взвешивает тушу и вносит фактический вес в заказ, а платформа пересчитывает сумму
+      по той же цене за килограмм.</p>
+    <div class="callout">
+      <p><b>Туша вышла легче</b> — разница возвращается на ту же карту автоматически, просить
+        ничего не нужно.</p>
+      <p><b>Туша вышла тяжелее</b> — доплата согласуется с покупателем до передачи мяса.</p>
+    </div>
+
+    <h2>Как проходит оплата</h2>
+    <ol class="steps">
+      <li>Покупатель оформляет заказ и оплачивает картой. Сумма <b>блокируется</b> на карте, но
+        ещё не списывается.</li>
+      <li>Хозяйство принимает заказ и ведёт его по четырём шагам, подтверждая каждый фотографиями
+        и видео: живое животное, готовое мясо со взвешиванием, отгрузка, передача.</li>
+      <li>После контрольного взвешивания списывается <b>фактическая</b> сумма. Если она меньше
+        заблокированной — разница возвращается.</li>
+      <li>Покупатель подтверждает получение. Если он этого не сделал, сделка закрывается сама
+        через три часа после передачи.</li>
+    </ol>
+    <p>Оплата проходит через платёжный сервис Freedom Pay. Данные карты вводятся на его странице
+      и на серверы платформы не попадают.</p>
+
+    <h2>Как вернуть деньги</h2>
+    <ul>
+      <li><b>Заказ отменён до забоя</b> — блокировка снимается полностью, туша возвращается
+        в продажу. Отменить заказ может и покупатель, и хозяйство.</li>
+      <li><b>Туша легче заявленного</b> — разница возвращается автоматически после взвешивания.</li>
+      <li><b>Претензия к качеству</b> — спор открывается в заказе в течение трёх часов после
+        передачи, с фотографиями. Открытый спор останавливает последнюю выплату хозяйству до
+        решения платформы; решение может быть полным возвратом, отказом или частичным возвратом.</li>
+    </ul>
+    <p>Подробные сроки и порядок — в <a href="/legal/">правовых документах</a>.</p>
+
+    <h2>Совместная покупка</h2>
+    <p>Одну тушу могут разделить от двух до пяти человек: организатор выбирает тушу, разделку и
+      доставку, стоимость делится поровну. Пока сбор идёт, туша не бронируется — если её купят
+      раньше, сбор не состоится и никто ничего не теряет.</p>
+
+    <h2>Что получает покупатель, кроме мяса</h2>
+    <div class="grid grid-3" style="margin-top:18px;">
+      <div class="trust-card">
+        <h3>Проверенное хозяйство</h3>
+        <p>СЭС и ветеринарный контроль проверены до того, как хозяйство попало в каталог.</p>
+      </div>
+      <div class="trust-card">
+        <h3>Доказательства по шагам</h3>
+        <p>Фотографии и видео на каждом этапе: животное, мясо, взвешивание, отгрузка, передача.</p>
+      </div>
+      <div class="trust-card">
+        <h3>След до животного</h3>
+        <p>Видно, из какого животного собрана туша и какие на него есть ветеринарные документы.</p>
+      </div>
+    </div>
+
+    <h2>Остались вопросы</h2>
+    <p>Напишите нам — контакты и реквизиты указаны в
+      <a href="/legal/">правовых документах</a>. Там же условия использования, политика
+      конфиденциальности и порядок удаления аккаунта.</p>
+  </div>
+
+  <div id="site-footer"></div>
+  <script type="module">
+    import { mountLayout } from "/js/layout.js";
+    mountLayout();
+  </script>
+</body>
+</html>

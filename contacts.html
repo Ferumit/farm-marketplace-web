@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('et-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
+<title>Контакты и реквизиты — ET</title>
+<meta name="description" content="Контакты и реквизиты ET: ТОО «Компания», БИН 000000000000, Астана, ул. Желтоксан 45. Телефон и почта поддержки, часы работы.">
+<link rel="canonical" href="https://example.kz/contacts">
+<link rel="icon" href="/assets/icon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/components.css">
+<style>
+  /* Страницу открывают с одним вопросом — «как с вами связаться и кто вы». Поэтому ответ
+     целиком помещается на первый экран, без прокрутки. */
+  .doc { max-width: 720px; }
+  .req-table { width: 100%; border-collapse: collapse; margin: 18px 0 8px; }
+  .req-table th, .req-table td { text-align: left; padding: 12px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .req-table th { width: 38%; font-weight: 500; color: var(--muted); font-size: 14px; }
+  .req-table td { font-weight: 600; }
+  .req-table .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-weight: 500; }
+</style>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <div class="container section-tight doc">
+    <span class="eyebrow">ET · Платформа</span>
+    <h1 style="margin-top:6px;">Контакты и реквизиты</h1>
+    <p>Платформу ET ведёт ТОО «Компания». Ниже — всё, что нужно, чтобы
+      связаться с нами или проверить, с кем вы имеете дело.</p>
+
+    <h2 style="margin-top:28px;">Как связаться</h2>
+    <table class="req-table">
+      <tr><th>Телефон</th><td><a href="tel:+77000000010">+7 700 000 00 00</a></td></tr>
+      <tr><th>Почта</th><td><a href="mailto:support@example.kz">support@example.kz</a></td></tr>
+      <tr><th>Часы работы</th><td>с 9:00 до 18:00, в рабочие дни</td></tr>
+    </table>
+    <p>По вопросам оплаты и возврата пишите на ту же почту — так ответ придёт быстрее, чем
+      через хозяйство.</p>
+
+    <h2 style="margin-top:28px;">Реквизиты</h2>
+    <table class="req-table">
+      <tr><th>Полное наименование</th><td>ТОО «Компания»</td></tr>
+      <tr><th>БИН</th><td class="mono">000000000000</td></tr>
+      <tr><th>Юридический адрес</th><td>010000, Казахстан, город Астана,<br>район Сарыарка, ул. Желтоксан, зд. 45</td></tr>
+    </table>
+
+    <h2 style="margin-top:28px;">Документы</h2>
+    <p>Условия покупки, порядок оплаты и возврата, обработка персональных данных —
+      в <a href="/legal/">правовых документах</a>. Как считается цена и из чего складывается
+      сумма заказа — на странице <a href="/how-it-works">«Цены и условия»</a>.</p>
+  </div>
+
+  <div id="site-footer"></div>
+  <script type="module">
+    import { mountLayout } from "/js/layout.js";
+    mountLayout();
+  </script>
+</body>
+</html>

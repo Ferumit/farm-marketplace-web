@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('et-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
+<title>Профиль — ET</title>
+<link rel="icon" href="/assets/icon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/components.css">
+<style>
+  .profile-wrap { max-width: 520px; margin: 0 auto; }
+  .profile-head { display: flex; align-items: center; gap: 16px; }
+  .profile-head .avatar-big {
+    width: 64px; height: 64px; border-radius: 50%; background: var(--green-surface); color: #fff;
+    display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 700;
+    flex-shrink: 0;
+  }
+  .profile-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
+</style>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <div class="container section-tight profile-wrap">
+    <span class="eyebrow">Профиль</span>
+    <h1 style="margin-top:6px;">Мой аккаунт</h1>
+
+    <div id="profile-content" class="panel" style="margin-top:20px;">
+      <div class="empty-state skeleton" style="height:220px;"></div>
+    </div>
+  </div>
+
+  <div id="site-footer"></div>
+  <script type="module" src="/js/profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('et-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
+<title>Заказ — ET</title>
+<link rel="icon" href="/assets/icon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/components.css">
+<style>
+  .order-layout { display:grid; gap:28px; grid-template-columns: 1fr; }
+  @media (min-width: 960px) { .order-layout { grid-template-columns: 1.2fr 1fr; align-items:start; } }
+  .step-photo { display:inline-block; margin-top:10px; }
+  .step-photo img { display:block; width:100%; max-width:260px; border-radius: var(--r-sm); }
+  .claim-text { white-space: pre-wrap; overflow-wrap: anywhere; }
+</style>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <div class="container section-tight" id="order-content">
+    <div class="empty-state skeleton" style="height:400px;"></div>
+  </div>
+
+  <div id="site-footer"></div>
+  <script type="module" src="/js/order.js"></script>
+</body>
+</html>

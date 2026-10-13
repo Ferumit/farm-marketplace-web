@@ -1,0 +1,139 @@
+:root {
+  /* surfaces */
+  --bg: #F3F0E8;
+  --surface: #FBFAF6;
+  --surface-2: #FFFFFF;
+  --line: #E4DFD3;
+  --fill-track: #E9E3D3;
+
+  /* text */
+  --ink: #1C1B19;
+  --ink-dim: #6F6A5E;
+  /* Dark enough to stay readable on the cream page background. This tier carries real
+     information ("2 доли из 4", "За долю"), not decoration, so it has to clear AA rather than
+     sit somewhere pretty above it - which pushes it close to --ink-dim by necessity. */
+  --ink-faint: #726C60;
+
+  /* brand accents */
+  --green: #0F4C3B;
+  --green-dark: #0A3A2C;
+  /* --green has to be light in dark mode so it works as ACCENT TEXT on a dark page. That same
+     value under white text only reaches 3.43:1. One token cannot do both jobs, so anything that
+     puts white text ON green uses --green-surface instead; purely decorative fills (the progress
+     bar, the step dots) keep --green. */
+  --green-surface: #0F4C3B;
+  --green-surface-hover: #0A3A2C;
+  --green-tint: #E4EDE9;
+  --rust: #9C4A2E;
+  --rust-dark: #7C3B24;
+  --rust-tint: #F1E4DE;
+  /* White text ON rust (buttons). Same idea as --green-surface: --rust is lightened in dark mode to
+     work as text on a dark page, which leaves white on it at 3.4:1. */
+  --rust-surface: #9C4A2E;
+  --rust-surface-hover: #7C3B24;
+
+  /* semantic */
+  --danger: #B3392A;
+  --ok: #2F7A4F;
+
+  /* Surfaces that stay dark in BOTH themes because they carry white text on top
+     (hero, footer). Without these they'd follow --ink and invert into white-on-white. */
+  --hero-base: #14120F;
+  /* For text on surfaces that stay light in BOTH themes (the badge over a lot photo).
+     Using --ink there makes the text follow the theme and go white-on-white in dark mode. */
+  --ink-on-light: #1C1B19;
+  --footer-bg: #1C1B19;
+  --header-bg: rgba(243, 240, 232, 0.92);
+
+  /* type */
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* radius */
+  --r-pill: 999px;
+  --r-card: 22px;
+  --r-sm: 12px;
+
+  /* shadow */
+  --shadow-card: 0 12px 30px -12px rgba(28, 27, 25, 0.18);
+  --shadow-soft: 0 4px 14px -6px rgba(28, 27, 25, 0.12);
+
+  /* layout */
+  --container: 1160px;
+  --gutter: 20px;
+
+  color-scheme: light;
+}
+
+/* Dark palette: same brand hues (forest green + terracotta) lifted for contrast on a warm
+   near-black, rather than a generic grey dark mode. Defined once here and reused by both the
+   system-preference block and the manual [data-theme="dark"] override below. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14120F;
+    --surface: #1C1917;
+    --surface-2: #232019;
+    --line: #322D26;
+    --fill-track: #2A251E;
+
+    --ink: #F2EEE4;
+    --ink-dim: #A8A192;
+    --ink-faint: #8A8375;
+
+    --green: #2F9C74;
+    --green-dark: #248260;
+    --green-surface: #17805B;
+    --green-surface-hover: #12694A;
+    --green-tint: #12261F;
+    --rust: #D2724A;
+    --rust-dark: #B75C38;
+    --rust-tint: #33211A;
+    --rust-surface: #A8502F;
+    --rust-surface-hover: #8E4327;
+
+    --danger: #E06A57;
+    --ok: #4FB484;
+
+    --footer-bg: #0D0B09;
+    --header-bg: rgba(20, 18, 15, 0.92);
+
+    --shadow-card: 0 12px 30px -12px rgba(0, 0, 0, 0.6);
+    --shadow-soft: 0 4px 14px -6px rgba(0, 0, 0, 0.5);
+
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #14120F;
+  --surface: #1C1917;
+  --surface-2: #232019;
+  --line: #322D26;
+  --fill-track: #2A251E;
+
+  --ink: #F2EEE4;
+  --ink-dim: #A8A192;
+  --ink-faint: #8A8375;
+
+  --green: #2F9C74;
+  --green-dark: #248260;
+  --green-surface: #17805B;
+  --green-surface-hover: #12694A;
+  --green-tint: #12261F;
+  --rust: #D2724A;
+  --rust-dark: #B75C38;
+  --rust-tint: #33211A;
+  --rust-surface: #A8502F;
+  --rust-surface-hover: #8E4327;
+
+  --danger: #E06A57;
+  --ok: #4FB484;
+
+  --footer-bg: #0D0B09;
+  --header-bg: rgba(20, 18, 15, 0.92);
+
+  --shadow-card: 0 12px 30px -12px rgba(0, 0, 0, 0.6);
+  --shadow-soft: 0 4px 14px -6px rgba(0, 0, 0, 0.5);
+
+  color-scheme: dark;
+}

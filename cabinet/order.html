@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('et-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
+<title>Заказ — ET Partners</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/icon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/components.css">
+<style>
+  .po-layout { display: grid; gap: 22px; grid-template-columns: minmax(0, 1fr); margin-top: 18px; }
+  @media (min-width: 980px) { .po-layout { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); align-items: start; } }
+  .po-aside { position: sticky; top: 90px; }
+  .po-contact dl { display: grid; grid-template-columns: max-content 1fr; gap: 6px 14px; margin: 10px 0 0; font-size: 14px; }
+  .po-contact dt { color: var(--ink-faint); }
+  .po-contact dd { margin: 0; overflow-wrap: anywhere; }
+  .weigh-row { display: grid; gap: 10px; grid-template-columns: minmax(0, 160px) minmax(0, 1fr); align-items: end; margin-top: 12px; }
+  .weigh-preview { font-size: 14px; margin: 0; }
+  .upload-note { font-size: 13px; color: var(--ink-faint); margin: 8px 0 0; }
+</style>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <div class="container section-tight">
+    <a href="/cabinet/orders" class="progress-caption" style="color:var(--green); font-weight:700;">← Все заказы</a>
+    <div id="cabinet-nav"></div>
+    <div id="po-content">
+      <div class="panel skeleton" style="height:260px; margin-top:18px;"></div>
+    </div>
+  </div>
+
+  <div id="site-footer"></div>
+  <script type="module" src="/js/partner-order.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('et-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
+<title>Этапы доставки — ET Partners</title>
+<link rel="icon" href="/assets/icon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/components.css">
+<style>
+  .lot-tabs { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 8px; margin-bottom: 22px; }
+  .lot-tab {
+    padding: 12px 18px; border-radius: var(--r-pill); white-space: nowrap; cursor: pointer;
+    background: var(--surface-2); border: 1px solid var(--line); color: var(--ink); font-weight: 600; font-size: 14px;
+  }
+  .lot-tab.selected { background: var(--green-surface); border-color: var(--green-surface); color: #fff; }
+  .step-media { width: 100%; max-width: 260px; border-radius: var(--r-sm); margin-top: 10px; }
+</style>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <div class="container section-tight">
+    <span class="eyebrow">Кабинет фермера</span>
+    <h1 style="margin:6px 0 0;">Этапы доставки</h1>
+    <p style="max-width:620px;">Покупатель видит эти этапы в своём заказе. Завершить шаг можно только приложив фото — это и есть подтверждение для покупателя.</p>
+
+    <div id="cabinet-nav"></div>
+    <div id="lot-tabs" class="lot-tabs"></div>
+    <div id="steps-list">
+      <div class="timeline-card skeleton" style="height:120px;"></div>
+    </div>
+  </div>
+
+  <div id="site-footer"></div>
+  <script type="module" src="/js/partner-traceability.js"></script>
+</body>
+</html>

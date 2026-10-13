@@ -1,0 +1,53 @@
+/* ---------- правовые страницы: оферта, оплата и возврат, политика ----------
+   Один документ на страницу, длинный текст, который читают глазами юриста и глазами покупателя.
+   Поэтому узкая колонка, крупный межстрочный интервал и заголовки, по которым видно структуру. */
+
+.legal { max-width: 760px; }
+
+.legal h2 {
+  margin: 34px 0 12px;
+  font-size: clamp(20px, 2.4vw, 26px);
+  scroll-margin-top: 90px;
+}
+.legal h3 {
+  margin: 24px 0 10px;
+  font-size: 18px;
+}
+.legal p, .legal li { line-height: 1.65; }
+.legal p { margin: 0 0 12px; }
+.legal ul, .legal ol { margin: 0 0 16px; padding-left: 22px; }
+.legal li { margin-bottom: 8px; }
+.legal li::marker { color: var(--ink-faint); }
+
+.legal-meta { color: var(--ink-dim); margin-top: 8px; }
+
+/* Заметка о статусе документа: видна сразу, но не спорит с текстом. */
+.legal-note {
+  background: var(--rust-tint);
+  border-radius: var(--r-card);
+  padding: 14px 18px;
+  margin-bottom: 28px;
+}
+
+/* Незаполненный реквизит. Подчёркнуто и на своём фоне: такой пропуск нельзя случайно
+   не заметить при вычитке — а именно это с реквизитами и происходит. */
+.fill {
+  background: var(--rust-tint);
+  color: var(--rust);
+  border-bottom: 1px dashed var(--rust);
+  padding: 0 4px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Таблица шагов и сроков. */
+.legal table { width: 100%; border-collapse: collapse; margin: 0 0 18px; }
+.legal th, .legal td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+.legal th { font-weight: 700; color: var(--ink); }
+.legal td { color: var(--ink-dim); }
+.legal td:first-child { color: var(--ink); font-weight: 500; }

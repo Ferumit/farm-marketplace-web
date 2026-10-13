@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Карта сайта. Главное здесь не каталог — его и так находят по ссылкам, — а правовые документы:
+  их спрашивает эквайер и проверяет Google Play, и находиться они должны без подсказок.
+
+  Оферта, правила оплаты и возврата и политика для сайта в карту НЕ включены: они ещё черновики
+  и ждут проверки юристом. Появятся здесь, когда будут готовы.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://example.kz/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://example.kz/lots</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://example.kz/farmers</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.kz/how-it-works</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.kz/contacts</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://example.kz/group</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://example.kz/register/partner</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://example.kz/register/buyer</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <url><loc>https://example.kz/offer</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://example.kz/payment-refund</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://example.kz/privacy</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <url><loc>https://example.kz/legal/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://example.kz/legal/terms-et-client</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://example.kz/legal/privacy-et-client</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://example.kz/legal/delete-account-et</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://example.kz/legal/terms-et-partners</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://example.kz/legal/privacy-et-partners</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://example.kz/legal/delete-account-et-partners</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+</urlset>

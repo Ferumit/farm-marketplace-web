@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('et-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
+<title>Витрина хозяйства — ET Partners</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/icon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/components.css">
+<style>
+  .sf-stack > .panel + .panel { margin-top: 18px; }
+  .sf-stack h3 { margin: 0 0 6px; }
+  .sf-lede { font-size: 14px; margin: 0 0 14px; color: var(--ink-dim); }
+  .checklist { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 8px; }
+  .checklist li { display: flex; gap: 10px; align-items: baseline; font-size: 14px; }
+  .checklist .mark { flex: 0 0 22px; font-weight: 700; }
+  .checklist .done .mark { color: var(--green); }
+  .checklist .wait .mark { color: var(--rust); }
+  .checklist .todo .mark { color: var(--ink-faint); }
+  .checklist .hint { color: var(--ink-faint); font-size: 13px; }
+  .opt-row { display: grid; gap: 8px; grid-template-columns: 1fr; padding: 12px; border: 1px solid var(--line); border-radius: var(--r-sm); margin-bottom: 10px; }
+  @media (min-width: 720px) { .opt-row { grid-template-columns: 1.3fr 0.7fr 1.6fr auto; align-items: end; } }
+  .opt-row--delivery { }
+  @media (min-width: 720px) { .opt-row--delivery { grid-template-columns: 1.6fr 0.8fr auto; } }
+  .opt-row label { display: block; font-size: 12px; font-weight: 700; color: var(--ink-dim); margin-bottom: 4px; }
+  .opt-row input { width: 100%; }
+  .opt-fixed { display: flex; justify-content: space-between; gap: 12px; padding: 12px; border-radius: var(--r-sm); background: var(--fill-track); margin-bottom: 10px; font-size: 14px; }
+  .video-box video, .video-box img { display: block; width: 100%; max-width: 520px; border-radius: var(--r-sm); background: #000; }
+  .video-actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 12px; }
+  .upload-progress { margin-top: 12px; max-width: 520px; }
+  .is-disabled { pointer-events: none; opacity: 0.55; }
+  .sf-save { position: sticky; bottom: 0; z-index: 5; margin-top: 18px; padding: 14px 0; background: linear-gradient(to top, var(--bg) 70%, transparent); display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+  .doc-list { display: grid; gap: 8px; margin-bottom: 12px; }
+  .doc-item { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; padding: 10px 12px; border: 1px solid var(--line); border-radius: var(--r-sm); font-size: 14px; }
+  .doc-item .grow { flex: 1 1 220px; min-width: 0; overflow-wrap: anywhere; }
+  .doc-upload { display: grid; gap: 10px; grid-template-columns: 1fr; }
+  @media (min-width: 720px) { .doc-upload { grid-template-columns: 1.2fr 1.2fr auto; align-items: center; } }
+</style>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <div class="container section-tight">
+    <span class="eyebrow">Кабинет фермера</span>
+    <h1 style="margin:6px 0 0;">Витрина хозяйства</h1>
+    <p style="max-width:680px;">То, что видят покупатели на странице хозяйства и в каталоге: описание, видео цеха,
+      разделка и доставка. Здесь же — реквизиты и сертификаты, которые проверяет платформа.</p>
+
+    <div id="cabinet-nav"></div>
+    <div id="status-note"></div>
+
+    <div class="sf-stack" id="sf-content">
+      <div class="panel skeleton" style="height:180px;"></div>
+    </div>
+  </div>
+
+  <div id="site-footer"></div>
+  <script type="module" src="/js/partner-storefront.js"></script>
+</body>
+</html>

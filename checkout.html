@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('et-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
+<title>Оформление заказа — ET</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/icon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/components.css">
+<style>
+  .checkout-layout { display: grid; gap: 24px; grid-template-columns: minmax(0, 1fr); margin-top: 20px; }
+  @media (min-width: 960px) { .checkout-layout { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); align-items: start; } }
+  .co-summary h3 { margin: 0 0 4px; }
+  .co-summary .muted { color: var(--ink-faint); font-size: 13px; margin: 0 0 14px; }
+  .co-line { display: flex; justify-content: space-between; gap: 12px; font-size: 14px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+  .co-line span:last-child { white-space: nowrap; text-align: right; }
+  .co-line small { display: block; color: var(--ink-faint); font-size: 12px; }
+  .co-total { display: flex; justify-content: space-between; align-items: baseline; margin-top: 14px; }
+  .co-total strong { font-family: var(--font-display); font-size: 30px; }
+  .co-row2 { display: grid; gap: 0 16px; grid-template-columns: 1fr; }
+  @media (min-width: 620px) { .co-row2 { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <div class="container section-tight">
+    <span class="eyebrow">Оформление заказа</span>
+    <h1 style="margin-top:6px;">Проверьте и подтвердите</h1>
+    <div id="checkout-content">
+      <div class="empty-state skeleton" style="height:320px; margin-top:20px;"></div>
+    </div>
+  </div>
+
+  <div id="site-footer"></div>
+  <script type="module" src="/js/checkout.js"></script>
+</body>
+</html>

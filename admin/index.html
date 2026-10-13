@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="referrer" content="no-referrer">
+  <!--
+    The staff panel is the highest-value target on the platform, so it gets a Content Security
+    Policy even though the public site does not have one yet. It lives here as a meta tag rather
+    than an nginx header so it can be exercised locally before it ships: an untested policy that
+    misses one origin breaks phone login instead of warning.
+
+    Every origin below is one the panel actually talks to:
+      gstatic / google.com / apis.google.com  - Firebase SDK modules and phone-auth reCAPTCHA
+      *.googleapis.com                        - Auth, Firestore, token refresh
+      *.cloudfunctions.net                    - the staff functions
+      firebasestorage.googleapis.com          - document thumbnails (served from ANOTHER origin,
+                                                so even a hostile upload cannot reach this page)
+      127.0.0.1:9099/8085/5001                - the emulators, used only on localhost
+  -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://www.google.com https://apis.google.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://firebasestorage.googleapis.com https://www.gstatic.com https://tile.openstreetmap.org; connect-src 'self' https://*.googleapis.com https://*.cloudfunctions.net https://www.google.com http://127.0.0.1:9099 http://127.0.0.1:8085 http://127.0.0.1:5001; frame-src https://www.google.com https://recaptcha.google.com https://farm-marketplace-demo.firebaseapp.com; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>ET · служебная панель</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <!-- Relative paths on purpose: this page is the site root on admin.example.kz but lives at
+       /admin/ in the local preview, and relative references resolve correctly in both. -->
+  <div id="app"><div class="boot">Загрузка…</div></div>
+  <div id="recaptcha-container"></div>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

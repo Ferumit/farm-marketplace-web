@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('et-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
+<title>Каталог фермеров — ET</title>
+<meta name="description" content="Аккредитованные фермерские хабы Казахстана — говядина и конина напрямую от производителя. Фильтры по зоне, породе, возрасту и бюджету.">
+<link rel="icon" href="/assets/icon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/components.css">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <div class="container section-tight">
+    <span class="eyebrow">Покупки</span>
+    <h1 style="margin-top:6px;">Каталог хабов</h1>
+    <p style="max-width:600px;">Аккредитованные региональные фермерские хозяйства. Каждый хаб — прямой производитель со своей инфраструктурой убоя и охлаждения.</p>
+
+    <div class="meat-switch" id="meat-switch" role="group" aria-label="Вид мяса">
+      <button type="button" data-meat="" aria-pressed="true">Всё мясо</button>
+      <button type="button" data-meat="cattle" aria-pressed="false">Говядина</button>
+      <button type="button" data-meat="horse" aria-pressed="false">Конина</button>
+    </div>
+
+    <button class="filters-toggle" id="filters-toggle" type="button"
+            aria-expanded="true" aria-controls="filter-bar" style="margin-top:16px;">Фильтры</button>
+    <div class="filter-bar" id="filter-bar">
+      <label class="filter-field"><span>Зона</span>
+        <select id="f-zone"><option value="">Все зоны</option></select></label>
+      <label class="filter-field"><span>Область</span>
+        <select id="f-region"><option value="">Все области</option></select></label>
+      <label class="filter-field"><span>Порода</span>
+        <select id="f-breed"><option value="">Любая</option></select></label>
+      <label class="filter-field"><span>Возраст</span>
+        <select id="f-age"><option value="">Любой</option></select></label>
+      <label class="filter-field"><span>Бюджет</span>
+        <select id="f-budget">
+          <option value="">Любой</option>
+          <optgroup label="Половина туши">
+            <option value="half:250000">до 250 000 ₸</option>
+            <option value="half:400000">до 400 000 ₸</option>
+            <option value="half:600000">до 600 000 ₸</option>
+          </optgroup>
+          <optgroup label="Целая туша">
+            <option value="whole:500000">до 500 000 ₸</option>
+            <option value="whole:800000">до 800 000 ₸</option>
+            <option value="whole:1200000">до 1 200 000 ₸</option>
+          </optgroup>
+        </select></label>
+      <label class="filter-field"><span>Рейтинг</span>
+        <select id="f-rating">
+          <option value="0">Любой</option>
+          <option value="4">от 4.0</option>
+          <option value="4.5">от 4.5</option>
+        </select></label>
+      <label class="filter-field filter-field--wide"><span>Поиск</span>
+        <input type="search" id="f-search" placeholder="Название хозяйства"></label>
+    </div>
+
+    <div class="filter-summary">
+      <span id="results-count" class="progress-caption" style="margin:0;"></span>
+      <button type="button" class="link-btn" id="f-reset" hidden>Сбросить фильтры</button>
+    </div>
+
+    <div id="farmer-grid" class="grid grid-cards">
+      <div class="card-photo skeleton" style="height:280px;"></div>
+      <div class="card-photo skeleton" style="height:280px;"></div>
+      <div class="card-photo skeleton" style="height:280px;"></div>
+    </div>
+  </div>
+
+  <div id="site-footer"></div>
+
+  <script type="module" src="/js/farmers.js"></script>
+</body>
+</html>

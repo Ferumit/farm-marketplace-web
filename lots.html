@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('et-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
+<title>Все лоты — ET</title>
+<meta name="description" content="Все открытые лоты мяса от аккредитованных фермерских хабов Казахстана: говядина и конина, фильтры по региону, породе и цене.">
+<link rel="icon" href="/assets/icon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/components.css">
+<style>
+  .catalog-layout { display: grid; gap: 24px; grid-template-columns: 1fr; }
+  @media (min-width: 900px) { .catalog-layout { grid-template-columns: 280px 1fr; align-items: start; } }
+  .meat-emoji-tile {
+    width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+    font-size: 44px; background: linear-gradient(135deg, var(--green-tint), var(--rust-tint));
+  }
+</style>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <div class="container section-tight">
+    <span class="eyebrow">Покупки</span>
+    <h1 style="margin-top:6px;">Все лоты</h1>
+    <p style="max-width:640px;">Открытые лоты всех аккредитованных хозяйств. Можно купить целиком или вместе с друзьями.</p>
+  </div>
+
+  <div class="container section-tight catalog-layout">
+    <button class="filters-toggle" id="filters-toggle" type="button"
+            aria-expanded="true" aria-controls="filters-panel">Фильтры</button>
+    <aside class="filters-panel" id="filters-panel">
+      <div class="filter-group">
+        <h4>Поиск</h4>
+        <input type="text" id="f-search" placeholder="Название, порода, хозяйство">
+      </div>
+      <div class="filter-group">
+        <h4>Тип мяса</h4>
+        <label class="check-row"><input type="checkbox" value="cattle" class="f-meat"> Говядина</label>
+        <label class="check-row"><input type="checkbox" value="horse" class="f-meat"> Конина</label>
+      </div>
+      <div class="filter-group">
+        <h4>Регион</h4>
+        <select id="f-region"><option value="">Все регионы</option></select>
+      </div>
+      <div class="filter-group">
+        <h4>Бюджет</h4>
+        <select id="f-price">
+          <option value="">Любой</option>
+          <optgroup label="Половина туши">
+            <option value="half:250000">до 250 000 ₸</option>
+            <option value="half:400000">до 400 000 ₸</option>
+            <option value="half:600000">до 600 000 ₸</option>
+          </optgroup>
+          <optgroup label="Целая туша">
+            <option value="whole:500000">до 500 000 ₸</option>
+            <option value="whole:800000">до 800 000 ₸</option>
+            <option value="whole:1200000">до 1 200 000 ₸</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="filter-group">
+        <h4>Наличие</h4>
+        <label class="check-row"><input type="checkbox" id="f-available"> Только то, что можно заказать</label>
+      </div>
+    </aside>
+
+    <div>
+      <div id="results-count" class="progress-caption" style="margin-bottom:14px;"></div>
+      <div id="lots-grid" class="grid grid-cards">
+        <div class="card-photo skeleton" style="height:320px;"></div>
+        <div class="card-photo skeleton" style="height:320px;"></div>
+        <div class="card-photo skeleton" style="height:320px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="site-footer"></div>
+  <script type="module" src="/js/lots.js"></script>
+</body>
+</html>

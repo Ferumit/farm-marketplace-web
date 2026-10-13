@@ -1,0 +1,19 @@
+# example.kz
+#
+# Сайт открыт для поиска целиком, кроме личных разделов: в корзине, заказах и профиле
+# поисковику нечего индексировать — там всё за входом, и страницы без входа пустые.
+#
+# Служебная панель живёт на отдельном домене admin.example.kz за паролем; здесь /admin/ отдаёт
+# 404. Строка ниже оставлена как напоминание, а не как защита: robots.txt ничего не закрывает,
+# он лишь просит. Защита — пароль nginx и правила Firestore.
+
+User-agent: *
+Allow: /
+Disallow: /cart
+Disallow: /checkout
+Disallow: /orders
+Disallow: /profile
+Disallow: /cabinet/
+Disallow: /admin/
+
+Sitemap: https://example.kz/sitemap.xml

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('et-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
+<title>Мой скот — ET Partners</title>
+<link rel="icon" href="/assets/icon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/components.css">
+<style>
+  .form-grid { display: grid; gap: 0 16px; grid-template-columns: 1fr; }
+  @media (min-width: 620px) { .form-grid { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <div class="container section-tight">
+    <span class="eyebrow">Кабинет фермера</span>
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:16px; flex-wrap:wrap;">
+      <h1 style="margin:6px 0 0;">Мой скот</h1>
+      <button class="btn-pill btn-primary" id="btn-toggle-form">+ Добавить животное</button>
+    </div>
+
+    <div id="cabinet-nav"></div>
+    <div id="status-note"></div>
+
+    <div class="panel" id="add-form" hidden style="margin-bottom:24px;">
+      <h3 style="margin-top:0;">Новое животное</h3>
+      <div class="form-grid">
+        <div class="field">
+          <label for="f-type">Вид</label>
+          <select id="f-type">
+            <option value="cattle">КРС (говядина)</option>
+            <option value="horse">Лошадь (конина)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-breed">Порода</label>
+          <select id="f-breed"></select>
+          <input type="text" id="f-breed-other" placeholder="Название породы" hidden style="margin-top:8px;">
+        </div>
+        <div class="field">
+          <label for="f-age">Возрастная категория</label>
+          <select id="f-age"></select>
+        </div>
+        <div class="field">
+          <label for="f-gender">Пол</label>
+          <select id="f-gender">
+            <option value="male">Самец</option>
+            <option value="female">Самка</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-weight">Вес, кг</label>
+          <input type="text" id="f-weight" placeholder="380" inputmode="decimal">
+        </div>
+        <div class="field">
+          <label for="f-price">Цена за кг, ₸</label>
+          <input type="text" id="f-price" placeholder="2200" inputmode="decimal">
+        </div>
+        <div class="field">
+          <label for="f-region">Область</label>
+          <select id="f-region"><option value="">Выберите область</option></select>
+        </div>
+        <div class="field">
+          <label>Фото (необязательно)</label>
+          <input type="file" id="f-photo" accept="image/*">
+        </div>
+      </div>
+      <p id="form-error" style="color:var(--danger); display:none;"></p>
+      <button class="btn-pill btn-primary btn-block" id="btn-save-animal">Добавить в реестр</button>
+    </div>
+
+    <div id="animals-list">
+      <div class="data-row skeleton" style="height:88px;"></div>
+      <div class="data-row skeleton" style="height:88px;"></div>
+    </div>
+  </div>
+
+  <div id="site-footer"></div>
+  <script type="module" src="/js/partner-animals.js"></script>
+</body>
+</html>
